@@ -17,7 +17,9 @@ namespace OtakuShelter.Health
 			services.AddHealthChecks()
 				.AddUrlGroup(new Uri("http://account.otaku-shelter.ru/swagger"), "Account")
 				.AddUrlGroup(new Uri("http://profile.otaku-shelter.ru/swagger"), "Profile")
-				.AddUrlGroup(new Uri("http://manga.otaku-shelter.ru/swagger"), "Manga");
+				.AddUrlGroup(new Uri("http://manga.otaku-shelter.ru/swagger"), "Manga")
+				.AddUrlGroup(new Uri("http://otaku-shelter.ru"), "Frontend");
+			
 				// .AddNpgSql("");
 
 			services.AddHealthChecksUI();
