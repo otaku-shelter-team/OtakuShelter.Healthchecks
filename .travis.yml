@@ -1,0 +1,29 @@
+os: linux
+dist: trusty
+cache: false
+sudo: required
+language: bash
+services: docker
+
+addons:
+  apt:
+    packages:
+    - sshpass
+    
+script:
+- docker build -t otakushelter/health:1.0.${TRAVIS_BUILD_NUMBER} -f src/OtakuShelter.Health.Web/Dockerfile .
+- docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
+- docker push otakushelter/health:1.0.$TRAVIS_BUILD_NUMBER
+- |
+  sudo sshpass -p $ANSIBLE_PASSWORD ssh -o StrictHostKeyChecking=no $ANSIBLE_CONNECTION \
+    "cd /root/OtakuShelter.Infrastructure/src && \
+    ansible-playbook deploy.yml \
+    -e \"\
+    otakushelter_hosts=healths \
+    otakushelter_container=otakushelter_health \
+    otakushelter_image=otakushelter/health \
+    otakushelter_port=4005 \
+    otakushelter_build_number=$TRAVIS_BUILD_NUMBER \
+    otakushelter_database_password=$OTAKUSHELTER_DATABASE_PASSWORD \
+    otakushelter_secret=$OTAKUSHELTER_SECRET\" \
+    -i inventories/staging"
