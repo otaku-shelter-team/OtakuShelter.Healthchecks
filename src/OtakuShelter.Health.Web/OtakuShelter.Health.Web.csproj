@@ -10,20 +10,15 @@
   <ItemGroup>
     <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="2.2.0" />
     <PackageReference Include="AspNetCore.HealthChecks.UI" Version="2.2.16" />
-    <PackageReference Include="AspNetCore.HealthChecks.Uris" Version="2.2.2" />
+    <PackageReference Include="AspNetCore.HealthChecks.Uris" Version="2.2.2" /
+    <PackageReference Include="HealthChecks.UI.Client" Version="2.2.2.0" />>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="NetEscapades.Configuration.Yaml" Version="1.6.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <_ContentIncludedByDefault Remove="Properties\launchSettings.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="HealthChecks.UI.Client, Version=2.2.2.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\..\..\.nuget\packages\aspnetcore.healthchecks.ui.client\2.2.2\lib\netstandard2.0\HealthChecks.UI.Client.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+		<None Include="appsettings.yml" CopyToPublishDirectory="Always" />
+	</ItemGroup>
 
 </Project>
