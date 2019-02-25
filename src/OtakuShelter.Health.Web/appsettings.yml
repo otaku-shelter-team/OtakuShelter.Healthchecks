@@ -1,0 +1,5 @@
+healthchecks-ui:
+  healthchecks:
+  - name: OtakuShelter
+    uri: http://localhost:5000/health
+    
