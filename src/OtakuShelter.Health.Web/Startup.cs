@@ -10,22 +10,17 @@ namespace OtakuShelter.Health
 {
 	public class Startup
 	{
-		// This method gets called by the runtime. Use this method to add services to the container.
-		// For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddHealthChecks()
-				.AddUrlGroup(new Uri("http://account.otaku-shelter.ru/swagger"), "Account")
-				.AddUrlGroup(new Uri("http://profile.otaku-shelter.ru/swagger"), "Profile")
-				.AddUrlGroup(new Uri("http://manga.otaku-shelter.ru/swagger"), "Manga")
+				.AddUrlGroup(new Uri("http://account.otaku-shelter.ru/health"), "Account")
+				.AddUrlGroup(new Uri("http://profile.otaku-shelter.ru/health"), "Profile")
+				.AddUrlGroup(new Uri("http://manga.otaku-shelter.ru/health"), "Manga")
 				.AddUrlGroup(new Uri("http://otaku-shelter.ru"), "Frontend");
-			
-				// .AddNpgSql("");
 
 			services.AddHealthChecksUI();
 		}
 
-		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 		{
 			app.UseHealthChecks("/health", new HealthCheckOptions
