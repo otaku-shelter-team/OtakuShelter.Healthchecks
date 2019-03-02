@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DB5770B7-1E9F-42F0-A8AB-3B9B31321E33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtakuShelter.Health.Web", "src\OtakuShelter.Health.Web\OtakuShelter.Health.Web.csproj", "{C7424B48-247B-4BF9-BF32-12F87CD78718}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtakuShelter.Healthchecks.Web", "src\OtakuShelter.Healthchecks.Web\OtakuShelter.Healthchecks.Web.csproj", "{C7424B48-247B-4BF9-BF32-12F87CD78718}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

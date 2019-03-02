@@ -11,19 +11,17 @@ addons:
     - sshpass
     
 script:
-- docker build -t otakushelter/healths:1.0.${TRAVIS_BUILD_NUMBER} -f src/OtakuShelter.Health.Web/Dockerfile .
+- docker build -t otakushelter/healthchecks:1.0.${TRAVIS_BUILD_NUMBER} -f src/OtakuShelter.Healthchecks.Web/Dockerfile .
 - docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
-- docker push otakushelter/healths:1.0.$TRAVIS_BUILD_NUMBER
+- docker push otakushelter/healthchecks:1.0.$TRAVIS_BUILD_NUMBER
 - |
   sudo sshpass -p $ANSIBLE_PASSWORD ssh -o StrictHostKeyChecking=no $ANSIBLE_CONNECTION \
     "cd /root/OtakuShelter.Infrastructure/src && \
     ansible-playbook deploy.yml \
     -e \"\
-    otakushelter_hosts=healths \
+    otakushelter_hosts=healthchecks \
     otakushelter_port=4005 \
-    otakushelter_image=otakushelter/healths \
-    otakushelter_server_name=health.otaku-shelter.ru \
-    otakushelter_build_number=$TRAVIS_BUILD_NUMBER \
-    otakushelter_database_password=$OTAKUSHELTER_DATABASE_PASSWORD \
-    otakushelter_secret=$OTAKUSHELTER_SECRET\" \
+    otakushelter_image=otakushelter/healthchecks \
+    otakushelter_server_name=healthchecks.staging.otaku-shelter.ru \
+    otakushelter_build_number=$TRAVIS_BUILD_NUMBER \" \
     -i inventories/staging"

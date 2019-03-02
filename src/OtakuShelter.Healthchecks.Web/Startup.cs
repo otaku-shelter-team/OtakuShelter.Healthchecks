@@ -13,11 +13,12 @@ namespace OtakuShelter.Health
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddHealthChecks()
-				.AddUrlGroup(new Uri("http://account.otaku-shelter.ru/health"), "Account")
-				.AddUrlGroup(new Uri("http://profile.otaku-shelter.ru/health"), "Profile")
-				.AddUrlGroup(new Uri("http://manga.otaku-shelter.ru/health"), "Manga")
-				.AddUrlGroup(new Uri("http://error.otaku-shelter.ru/health"), "Error")
-				.AddUrlGroup(new Uri("http://otaku-shelter.ru"), "Frontend");
+				.AddUrlGroup(new Uri("http://accounts.staging.otaku-shelter.ru/health"), "Account")
+				.AddUrlGroup(new Uri("http://profiles.staging.otaku-shelter.ru/health"), "Profile")
+				.AddUrlGroup(new Uri("http://mangas.staging.otaku-shelter.ru/health"), "Manga")
+				.AddUrlGroup(new Uri("http://errors.staging.otaku-shelter.ru/health"), "Error")
+				.AddUrlGroup(new Uri("http://reviews.staging.otaku-shelter.ru"), "Reviews")
+				.AddUrlGroup(new Uri("http://staging.otaku-shelter.ru"), "Frontend");
 
 			services.AddHealthChecksUI();
 		}
