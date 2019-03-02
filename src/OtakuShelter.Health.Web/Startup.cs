@@ -29,7 +29,7 @@ namespace OtakuShelter.Health
 				ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
 			});
 			
-			app.UseHealthChecksUI();
+			app.UseHealthChecksUI(options => options.UIPath = "/dashboard");
 		}
 	}
 }
