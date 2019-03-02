@@ -17,7 +17,7 @@ namespace OtakuShelter.Health
 				.AddUrlGroup(new Uri("http://profiles.staging.otaku-shelter.ru/health"), "Profile")
 				.AddUrlGroup(new Uri("http://mangas.staging.otaku-shelter.ru/health"), "Manga")
 				.AddUrlGroup(new Uri("http://errors.staging.otaku-shelter.ru/health"), "Error")
-				.AddUrlGroup(new Uri("http://reviews.staging.otaku-shelter.ru"), "Reviews")
+				.AddUrlGroup(new Uri("http://reviews.staging.otaku-shelter.ru/health"), "Reviews")
 				.AddUrlGroup(new Uri("http://staging.otaku-shelter.ru"), "Frontend");
 
 			services.AddHealthChecksUI();
